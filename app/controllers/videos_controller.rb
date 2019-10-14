@@ -1,6 +1,11 @@
 class VideosController < ApplicationController
   def index
     @videos = current_user.videos.all.order("created_at DESC")
+    @video = current_user.videos.find_by(word: "#{params[:keyword]}")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new

@@ -1,0 +1,18 @@
+<%= form_with(model: @video, local: true) do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder:"タイトル"%>
+  </div>
+  <div>
+    <%= f.text_field :url, placeholder:"URL"%>
+  </div>
+  <div>
+    <%= f.text_field :note, placeholder:"メモ"%>
+  </div>
+  <div>
+    <button type="button", id="r-btn">クリックしてください</button>
+    <p><%= f.text_field :word, placeholder:"キーワードがここに入力されます" %></p>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

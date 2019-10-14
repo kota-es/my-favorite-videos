@@ -1,2 +1,39 @@
-<h1>Videos#index</h1>
-<p>Find me in app/views/videos/index.html.erb</p>
+<div class="wrapper">
+
+<div id="content">
+  <p id="welcome">Which Do You Wanna Watch...?</p>
+  <div id="info">⬇️キーワードを選んでください⬇️</div>  
+</div>
+
+<div class="top-menu">
+  <ul>
+    <li id="search"><input type="text" id="search-box" placeholder="キーワード検索"></li>
+    <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
+    <li><%= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn" %></li>
+    <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-btn" %></li>
+  </ul>
+</div>
+
+<section>
+<h2><%= current_user.name %>さんの動画登録数:<%= @count %></h2>
+ <table border="4">
+    <% if current_user.videos.length > 0 %>
+      <tr>
+        <th>キーワード<br>（クリックで再生）</th>
+        <th>動画タイトル</th>
+        <th>メモ</th>
+        <th>削除</th>
+        <th>編集</th>
+      </tr>
+      <% @videos.each do |video|%>
+        <tr>
+          <td class="word"><%= video.word %></td>
+          <td class="title"><%= video.title %></td>
+          <td class="note"><%= video.note %></td>
+          <td class="delete"><%= button_to "DELETE", "/videos/#{video.id}", method: :delete %></td>
+          <td class="edit"><%= button_to "EDIT", "/videos/#{video.id}/edit", method: :get %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</section>

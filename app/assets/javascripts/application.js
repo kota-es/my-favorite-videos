@@ -20,3 +20,7 @@ function buildHTML(video){
   var html = `<iframe width="100%" height="100%" src="${video.url}?autoplay=1" allow="autoplay" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allow="autoplay" allowfullscreen></iframe>`
   return html;
 }
+
+function ScrollToTop(){
+$('html').animate({scrollTop:0});
+}

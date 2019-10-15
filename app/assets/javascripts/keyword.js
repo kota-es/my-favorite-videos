@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function(){
     var script = e.results[0][0].transcript;
     console.log(script);
     $(input).val(script);
-    $(btn).text('やり直す場合は再度クリック');
+    $(btn).text('やり直す場合はクリック');
   });
   
   speech.onsoundstart = () => {

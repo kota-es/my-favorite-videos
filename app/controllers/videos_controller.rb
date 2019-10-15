@@ -33,6 +33,14 @@ class VideosController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @videos = current_user.videos.where('word LIKE(?) OR title LIKE(?) OR note LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def video_params

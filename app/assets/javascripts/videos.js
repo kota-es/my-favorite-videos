@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function(){
       var html = buildHTML(data);
       $('#content').html(html);
       $(btn).css('display', 'none');
-      $('body, html').animate({scrollTop:0});
+      ScrollToTop();
     })
   });
 

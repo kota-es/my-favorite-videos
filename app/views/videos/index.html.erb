@@ -2,12 +2,12 @@
 
 <div id="content">
   <p id="welcome">Which Do You Wanna Watch...?</p>
-  <div id="info">⬇️キーワードを選んでください⬇️</div>  
+  <div id="info">⬇️ Choose a Keyword! ⬇️</div>  
 </div>
 
 <div class="top-menu">
   <ul>
-    <li id="search"><input type="text" id="search-box" placeholder="キーワード検索"></li>
+    <li id="search"><input type="text" id="search-box" placeholder="検索（キーワード、タイトル名、メモの内容）"></li>
     <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
     <li><%= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn" %></li>
     <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-btn" %></li>
@@ -15,7 +15,7 @@
 </div>
 
 <section>
-<h2><%= current_user.name %>さんの動画登録数:<%= @count %></h2>
+<h2><%= current_user.name %>さんの動画登録数:<%= @videos.length %></h2>
  <table border="4">
     <% if current_user.videos.length > 0 %>
       <tr>
@@ -26,7 +26,7 @@
         <th>編集</th>
       </tr>
       <% @videos.each do |video|%>
-        <tr>
+        <tr class="video-content">
           <td class="word"><%= video.word %></td>
           <td class="title"><%= video.title %></td>
           <td class="note"><%= video.note %></td>

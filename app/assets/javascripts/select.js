@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
       var html = buildHTML(data);
       $('#content').html(html);
       $(startbtn).css('display', 'none');
-      $('body, html').animate({scrollTop:0});
+      ScrollToTop();
     })
     .fail(function(){
       alert("error")

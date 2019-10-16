@@ -7,16 +7,16 @@ $(document).on('turbolinks:load', function(){
                   <td class="word">${video.word}</td>
                   <td class="title">${video.title}</td>
                   <td class="note">${video.note}</td>
-                  <td class="delete"><form class="button_to" method="post" action="/videos/${video.id}"><input type="hidden" name="_method" value="delete"><input type="submit" value="DELETE"><input type="hidden" name="authenticity_token" value="oYvcuT87c0SZfsl/wUk4k6yJ/6lKa23fUNaho4S+Db5+jgIhyTtAWvm+URjpCXdn6x9a3/o8uPBN2uCHPbKJ7g=="></form></td>
-                  <td class="edit"><form class="button_to" method="get" action="/videos/${video.id}/edit"><input type="submit" value="EDIT"></form></td>
+                  <td><form class="button_to" method="post" action="/videos/${video.id}"><input type="hidden" name="_method" value="delet"><input data-confirm="The White Stripes - 'Seven Nation Army'を削除します。よろしいですか？" class="delete" type="submit" value="削除"><input type="hidden" name="authenticity_token" value="VPfAhVXPegolqCbaFB5nq8TVb3Ayl3qtXYaRsCWtz6+OgHzqwGaAPseRme0XMslOlEBOPhrAsQBMaWTf0J5JjQ=="></form></td>
+                  <td><form class="button_to" method="get" action="/videos/${video.id}/edit"><input class="edit" type="submit" value="編集"></form></td>
                 </tr>`
-    
+
     $('tbody').append(html);
   }
 
   function NoMatchTitle(info){
     var html = `<tr class="video-content">
-                  <td colspan="5">${info}</td>
+                  <td id="no-match" colspan="5">${info}</td>
                 </tr>`
     
     $('tbody').append(html);

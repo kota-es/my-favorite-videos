@@ -5,13 +5,15 @@
   <div id="info">⬇️ Choose a Keyword! ⬇️</div>  
 </div>
 
-<div id="top-menu">
-  <ul>
-    <li id="search"><input type="text" id="search-box" placeholder="検索（キーワード、タイトル名、メモの内容）"></li>
-    <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
-    <li><%= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn" %></li>
-    <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-btn" %></li>
-  </ul>
+<div class="top-menu__wrapper">
+  <div id="top-menu">
+    <ul>
+      <li id="search"><input type="text" id="search-box" placeholder="検索（キーワード、タイトル名、メモの内容）"></li>
+      <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
+      <li><%= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn" %></li>
+      <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-btn" %></li>
+    </ul>
+  </div>
 </div>
 
 <section>

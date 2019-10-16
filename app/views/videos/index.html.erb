@@ -5,7 +5,7 @@
   <div id="info">⬇️ Choose a Keyword! ⬇️</div>  
 </div>
 
-<div class="top-menu">
+<div id="top-menu">
   <ul>
     <li id="search"><input type="text" id="search-box" placeholder="検索（キーワード、タイトル名、メモの内容）"></li>
     <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
@@ -22,16 +22,16 @@
         <th>キーワード<br>（クリックで再生）</th>
         <th>動画タイトル</th>
         <th>メモ</th>
-        <th>削除</th>
-        <th>編集</th>
+        <th class="t-btn">削除</th>
+        <th class="t-btn">編集</th>
       </tr>
       <% @videos.each do |video|%>
         <tr class="video-content">
           <td class="word"><%= video.word %></td>
           <td class="title"><%= video.title %></td>
           <td class="note"><%= video.note %></td>
-          <td class="delete"><%= button_to "DELETE", "/videos/#{video.id}", method: :delete %></td>
-          <td class="edit"><%= button_to "EDIT", "/videos/#{video.id}/edit", method: :get %></td>
+          <td><%= button_to "削除", "/videos/#{video.id}", method: :delete , data: {confirm: "#{video.title}を削除します。よろしいですか？"}, class: "delete" %></td>
+          <td><%= button_to "編集", "/videos/#{video.id}/edit", method: :get, class: "edit"%></td>
         </tr>
       <% end %>
     <% end %>

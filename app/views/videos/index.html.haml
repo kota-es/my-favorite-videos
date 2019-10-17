@@ -1,0 +1,38 @@
+.wrapper
+  #content
+    %p#welcome Which Do You Wanna Watch...?
+    #info ⬇️ Choose a Keyword! ⬇️
+  .top-menu__wrapper
+    #top-menu
+      %ul
+        %li#search
+          %input#search-box{:placeholder => "検索（キーワード、タイトル名、メモの内容）", :type => "text"}/
+        %li= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"
+        %li= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn"
+        %li= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, class: "menu-btn"
+  %section
+    .video-info__space
+      - if flash[:notice]
+        .flash.video-info
+          = flash[:notice]
+    %h2
+      = current_user.name
+      さんの動画登録数:#{@videos.length}
+    %table{:border => "4"}
+      - if current_user.videos.length > 0
+        %tr
+          %th
+            キーワード
+            %br>/
+            （クリックで再生）
+          %th 動画タイトル
+          %th メモ
+          %th.t-btn 削除
+          %th.t-btn 編集
+        - @videos.each do |video|
+          %tr.video-content
+            %td.word= video.word
+            %td.title= video.title
+            %td.note= video.note
+            %td= button_to "削除", "/videos/#{video.id}", method: :delete , data: {confirm: "#{video.title}を削除します。よろしいですか？"}, class: "delete"
+            %td= button_to "編集", "/videos/#{video.id}/edit", method: :get, class: "edit"

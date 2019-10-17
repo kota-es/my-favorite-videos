@@ -16,6 +16,7 @@
 
  @import "./reset";
  @import "modules/form";
+ @import "modules/flash";
 
  a{
    color: black;
@@ -87,7 +88,11 @@
          &:hover{
            background: black;
            color: white;
+           
          }
+         &:focus{
+          outline: none;
+        }
        }
      }
    }
@@ -103,7 +108,7 @@
 }
  
  section{
-   margin: 60px;
+   margin: 30px 60px;
    overflow: scroll;
  }
  
@@ -148,6 +153,9 @@
    font-size: 1.1em;
    border-bottom: 3px solid #ddd;
    cursor: pointer;
+   &:focus{
+    outline: none;
+  }
  }
 
  .t-btn{
@@ -170,4 +178,16 @@
    padding: 10px;
    font-size: 1.2em;
    font-weight: bold;
+ }
+
+ .video-info{
+   width: 90vw;
+   height: 30px;
+   font-size: 20px;
+   background: yellow;
+   margin: 10px 0;
+   text-align: center;
+   &__space{
+     height: 30px;
+   }
  }

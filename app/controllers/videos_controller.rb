@@ -13,8 +13,13 @@ class VideosController < ApplicationController
   end
 
   def create
-    current_user.videos.create(video_params)
-    redirect_to "/videos#info"
+    @video = Video.new(video_params)
+    if @video.save
+      flash[:notice] = "キーワード「#{@video.word}」の動画を登録しました"
+      redirect_to "/videos#info"
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -24,12 +29,14 @@ class VideosController < ApplicationController
   def update
     video = Video.find(params[:id])
     video.update(video_params)
+    flash[:notice] = "キーワード「#{video.word}」の動画情報を更新しました"
     redirect_to "/videos#info"
   end
 
   def destroy
     video = Video.find(params[:id])
     video.destroy
+    flash[:notice] = "キーワード「#{video.word}」の動画を削除しました"
     redirect_to "/videos#info"
   end
 
@@ -44,7 +51,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:word, :title, :url, :note)
+    params.require(:video).permit(:word, :title, :url, :note).merge(user_id: current_user.id)
   end
 
 end

@@ -1,5 +1,12 @@
   <%= form_with(model: @video, local: true) do |f| %>
 
+    <% if @video.errors.any? %>
+      <%= "#{@video.errors.full_messages.count}件のエラーが発生しました。" %>
+        <% @video.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+  <% end %>
+
     <div class="video-form__field">
       <div class="video-form__field--left">
         <%= f.label :title, "動画タイトル", class: "video-form__label" %>

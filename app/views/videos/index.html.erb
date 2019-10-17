@@ -11,14 +11,21 @@
       <li id="search"><input type="text" id="search-box" placeholder="検索（キーワード、タイトル名、メモの内容）"></li>
       <li><%= button_to "動画を登録", new_video_path, method: :get, class: "menu-btn"%></li>
       <li><%= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn" %></li>
-      <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-btn" %></li>
+      <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, class: "menu-btn" %></li>
     </ul>
   </div>
 </div>
 
 <section>
-<h2><%= current_user.name %>さんの動画登録数:<%= @videos.length %></h2>
- <table border="4">
+  <div class="video-info__space">
+    <% if flash[:notice] %>
+        <div class="flash video-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    </div>
+  <h2><%= current_user.name %>さんの動画登録数:<%= @videos.length %></h2>
+  <table border="4">
     <% if current_user.videos.length > 0 %>
       <tr>
         <th>キーワード<br>（クリックで再生）</th>

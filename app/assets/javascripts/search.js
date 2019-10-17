@@ -42,7 +42,6 @@ $(document).on('turbolinks:load', function(){
       }
       else{
         NoMatchTitle('該当する動画はありません')
-        console.log("なし")
       }
     })
     .fail(function(){

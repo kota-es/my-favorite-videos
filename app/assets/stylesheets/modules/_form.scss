@@ -1,7 +1,7 @@
 .video-form{
   height: 70%;
   width: 70vw;
-  margin: 5vw auto 1vw;
+  margin: 3vw auto 1vw;
   padding: 20px 40px 20px 40px;
   border: 2px solid #ddd;
   & .error ul li{
@@ -78,17 +78,33 @@
   }
 }
 
-.to-youtube{
+.link-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-btn{
   width: 11vw;
   display: block;
-  margin: auto;
+  margin: 10px;
   padding: 10px 50px;
   text-align: center;
-  background-color: black;
-  color: white;
   font-size: 1.2em;
   cursor: pointer;
   &:hover{
     opacity: 0.6;
   }
+}
+
+.youtube-btn{
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+  }
+
+.top-btn{
+  background-color: white;
+  color: gray;
+  border: 1px solid black;
 }

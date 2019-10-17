@@ -1,4 +1,6 @@
 .video-form
   %h2 お気に入り動画を登録しよう！
   = render 'form', video: @video
-= link_to "動画探しの旅に出る", "https://www.youtube.com/", target:"_blank", class: "to-youtube"
+.link-menu
+  = link_to "動画探しの旅に出る", "https://www.youtube.com/", target:"_blank", class: "link-btn youtube-btn"
+  = link_to "TOPに戻る", "/#info", method: :get, class: "link-btn top-btn"

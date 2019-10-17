@@ -1,8 +1,10 @@
 = form_with(model: @video, local: true) do |f|
   - if @video.errors.any?
-    = "#{@video.errors.full_messages.count}件のエラーが発生しました。"
-    - @video.errors.full_messages.each do |message|
-      = message
+    .error
+      %ul
+        - @video.errors.full_messages.each do |message|
+          %li
+            = message
   .video-form__field
     .video-form__field--left
       = f.label :title, "動画タイトル", class: "video-form__label"
@@ -26,5 +28,4 @@
       %button.video-form__field__btn{:type => "button"} ♪音声入力♪
       = f.text_field :word, placeholder:"キーワードがここに入力されます", class: "video-form__input"
       %p 「音声入力」ボタンをクリックして、設定したいキーワードを音声入力してください。自動でフォームが入力されます。
-  .video-form__field--right
-    = f.submit class: "video-form__btn"
+  = f.submit class: "video-form__btn"

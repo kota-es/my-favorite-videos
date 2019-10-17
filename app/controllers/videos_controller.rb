@@ -27,10 +27,13 @@ class VideosController < ApplicationController
   end
 
   def update
-    video = Video.find(params[:id])
-    video.update(video_params)
-    flash[:notice] = "キーワード「#{video.word}」の動画情報を更新しました"
-    redirect_to "/videos#info"
+    @video = Video.find(params[:id])
+    if @video.update(video_params)
+      flash[:notice] = "キーワード「#{@video.word}」の動画情報を更新しました"
+      redirect_to "/videos#info"
+    else
+      render :edit
+    end
   end
 
   def destroy

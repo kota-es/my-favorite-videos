@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function(){
   speech.lang = "ja";
   
   $(window).on('load', function(){
-    if(location.href == "http://localhost:3000/"){
+    if(location.href == "http://localhost:3000/" || "http://localhost:3000/videos#info"){
       speech.start();
 
       speech.onend = () => {

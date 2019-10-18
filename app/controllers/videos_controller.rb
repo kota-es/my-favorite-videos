@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:edit, :update, :destroy]
 
   def index
-    @videos = current_user.videos.order("created_at DESC")
+    @videos = current_user.videos.recent
     gon.videos_length = @videos.length
     gon.user_name = current_user.name
     @video = current_user.videos.find_by(word: "#{params[:keyword]}")
@@ -46,7 +46,7 @@ class VideosController < ApplicationController
   end
 
   def search
-    @videos = current_user.videos.where('word LIKE(?) OR title LIKE(?) OR note LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC")
+    @videos = current_user.videos.where('word LIKE(?) OR title LIKE(?) OR note LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%", "%#{params[:keyword]}%").recent
     respond_to do |format|
       format.html
       format.json

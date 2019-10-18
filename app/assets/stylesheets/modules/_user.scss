@@ -3,8 +3,8 @@
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: $white;
+    border: 1px solid $light-gray;
     border-radius: 5px;
 
     .account-page__inner--left, .account-page__inner--right {
@@ -26,13 +26,13 @@
       font-weight: bold;
       & .title-u{
         font-size: 80px;
-        color: red;
+        color: $red;
       }
       &:after {
         content: '';
         display: block;
         width: 390px;
-        border-bottom: 5px solid red;
+        border-bottom: 5px solid $red;
       }
     }
     h2 {
@@ -50,7 +50,7 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
+      color: $white;
       background-color: #ccc;
       font-size: 14px;
       text-decoration: none;
@@ -95,8 +95,8 @@
   input[type='submit'] {
     float: left;
     margin-top: 20px;
-    color: #fff;
-    background-color: red;
+    color: $white;
+    background-color: $red;
   }
 
   .field-label {
@@ -128,7 +128,7 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid $light-gray;
   border-radius: 2px;
 
   h2 {

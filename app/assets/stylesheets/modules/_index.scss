@@ -83,19 +83,23 @@
 }
 
 section{
-  margin: 30px 60px;
+  margin: 15px 60px;
   overflow: scroll;
 }
 
 #title-count{
   font-size: 20px;
   font-weight: bold;
+  width: 90%;
+  margin: auto;
 }
+
 
 table{
   border-collapse: collapse;
   border-spacing: 0;
-  width: 90vw;
+  width: 90%;
+  margin: auto;
 }
 
 table tr{
@@ -159,11 +163,11 @@ th{
 #index-flash{
   height: 30px;
   &__msg{
-    width: 90vw;
+    width: 90%;
     height: 30px;
     font-size: 20px;
     background: $yellow;
-    margin: 10px 0;
+    margin: 5px auto;
     text-align: center;
   }
 } 

@@ -34,7 +34,13 @@ $(document).on('turbolinks:load', function(){
 
     .done(function(videos){
       $(".video-content").empty();
-      if (videos.length !== 0){
+      if ($(box).val() == ""){
+        $("#title-count").text(gon.user_name + " さんの動画登録数：" + gon.videos_length + "件") 
+        videos.forEach(function(video){
+          appendVideoTitle(video);
+        });
+      }
+      else if (videos.length !== 0){
         $("#title-count").text("検索結果：" + videos.length + "件見つかりました。")
         videos.forEach(function(video){
           appendVideoTitle(video);

@@ -19,7 +19,7 @@
 
     %h2#title-count
       = current_user.name
-      さんの動画登録数:#{@videos.length}
+      さんの動画登録数：#{@videos.length}件
 
     %table{:border => "4"}
       - if current_user.videos.length > 0

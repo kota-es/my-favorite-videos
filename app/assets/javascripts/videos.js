@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function(){
 
     .done(function(data){
       var html = buildHTML(data);
-      $('#content').html(html);
+      $('#display').html(html);
       $(btn).css('display', 'none');
       ScrollToTop();
     })

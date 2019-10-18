@@ -1,8 +1,8 @@
 .wrapper
-  #content
-    %p#welcome Which Do You Wanna Watch...?
-    #info ⬇️ Choose a Keyword! ⬇️
-  .top-menu__wrapper
+  #display
+    %p#display__msg Which Do You Wanna Watch...?
+    #display__info ⬇️ Choose a Keyword! ⬇️
+  #top-menu__wrapper
     #top-menu
       %ul
         %li#search
@@ -11,13 +11,16 @@
         %li= button_to "アカウント設定", edit_user_registration_path, method: :get, class: "menu-btn"
         %li= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, class: "menu-btn"
   %section
-    .video-info__space
+
+    #index-flash
       - if flash[:notice]
-        .flash.video-info
+        #index-flash__msg
           = flash[:notice]
-    %h2
+
+    %h2#title-count
       = current_user.name
       さんの動画登録数:#{@videos.length}
+
     %table{:border => "4"}
       - if current_user.videos.length > 0
         %tr
@@ -27,12 +30,7 @@
             （クリックで再生）
           %th 動画タイトル
           %th メモ
-          %th.t-btn 削除
-          %th.t-btn 編集
-        - @videos.each do |video|
-          %tr.video-content
-            %td.word= video.word
-            %td.title= video.title
-            %td.note= video.note
-            %td= button_to "削除", "/videos/#{video.id}", method: :delete , data: {confirm: "#{video.title}を削除します。よろしいですか？"}, class: "delete"
-            %td= button_to "編集", "/videos/#{video.id}/edit", method: :get, class: "edit"
+          %th.btn-menu 削除
+          %th.btn-menu 編集
+        = render @videos
+          

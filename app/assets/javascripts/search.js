@@ -7,8 +7,8 @@ $(document).on('turbolinks:load', function(){
                   <td class="word">${video.word}</td>
                   <td class="title">${video.title}</td>
                   <td class="note">${video.note}</td>
-                  <td><form class="button_to" method="post" action="/videos/${video.id}"><input type="hidden" name="_method" value="delet"><input data-confirm="The White Stripes - 'Seven Nation Army'を削除します。よろしいですか？" class="delete" type="submit" value="削除"><input type="hidden" name="authenticity_token" value="VPfAhVXPegolqCbaFB5nq8TVb3Ayl3qtXYaRsCWtz6+OgHzqwGaAPseRme0XMslOlEBOPhrAsQBMaWTf0J5JjQ=="></form></td>
-                  <td><form class="button_to" method="get" action="/videos/${video.id}/edit"><input class="edit" type="submit" value="編集"></form></td>
+                  <td><form class="button_to" method="post" action="/videos/${video.id}"><input type="hidden" name="_method" value="delet"><input data-confirm="The White Stripes - 'Seven Nation Army'を削除します。よろしいですか？" class="t-btn delete" type="submit" value="削除"><input type="hidden" name="authenticity_token" value="VPfAhVXPegolqCbaFB5nq8TVb3Ayl3qtXYaRsCWtz6+OgHzqwGaAPseRme0XMslOlEBOPhrAsQBMaWTf0J5JjQ=="></form></td>
+                  <td><form class="button_to" method="get" action="/videos/${video.id}/edit"><input class="t-btn edit" type="submit" value="編集"></form></td>
                 </tr>`
 
     $('tbody').append(html);
@@ -16,9 +16,8 @@ $(document).on('turbolinks:load', function(){
 
   function NoMatchTitle(info){
     var html = `<tr class="video-content">
-                  <td id="no-match" colspan="5">${info}</td>
+                  <td id="notitle-msg" colspan="5">${info}</td>
                 </tr>`
-    
     $('tbody').append(html);
   }
   
@@ -63,7 +62,7 @@ $(document).on('turbolinks:load', function(){
 
     .done(function(data){
       var html = buildHTML(data);
-      $('#content').html(html);
+      $('#display').html(html);
       $(startbtn).css('display', 'none');
       ScrollToTop();
     })

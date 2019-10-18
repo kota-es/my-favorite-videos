@@ -35,11 +35,13 @@ $(document).on('turbolinks:load', function(){
     .done(function(videos){
       $(".video-content").empty();
       if (videos.length !== 0){
+        $("#title-count").text("検索結果：" + videos.length + "件見つかりました。")
         videos.forEach(function(video){
           appendVideoTitle(video);
         });
       }
       else{
+        $("#title-count").text("検索結果：0件")
         NoMatchTitle('該当する動画はありません')
       }
     })

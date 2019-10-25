@@ -18,6 +18,9 @@ $(document).on('turbolinks:load', function(){
     var script = e.results[0][0].transcript;
     console.log(script);
     
+    if(script == 'ストップ'){
+      VideoStop();
+    }else{
     $.ajax({
       type: 'GET',
       url: '',
@@ -26,11 +29,9 @@ $(document).on('turbolinks:load', function(){
     })
 
     .done(function(data){
-      var html = buildHTML(data);
-      $('#display').html(html);
-      $(btn).css('display', 'none');
-      ScrollToTop();
+      VideoStart(data);
     })
+    }
   });
 
 });

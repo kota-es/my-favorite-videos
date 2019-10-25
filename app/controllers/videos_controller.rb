@@ -3,6 +3,7 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:edit, :update, :destroy]
 
   def index
+    @title = "トップページ｜FavoTube"
     @videos = current_user.videos.recent
     gon.videos_length = @videos.length
     gon.user_name = current_user.name
@@ -14,6 +15,7 @@ class VideosController < ApplicationController
   end
 
   def new
+    @title = "動画登録｜FavoTube"
     @video = Video.new
   end
 
@@ -28,6 +30,7 @@ class VideosController < ApplicationController
   end
 
   def edit
+    @title = "動画情報編集｜FavoTube"
   end
 
   def update
@@ -40,7 +43,7 @@ class VideosController < ApplicationController
   end
 
   def destroy
-    @video.destroy
+    @video.delete
     flash[:notice] = "キーワード「#{@video.word}」の動画を削除しました"
     redirect_to "/videos#display__info"
   end
@@ -59,6 +62,8 @@ class VideosController < ApplicationController
     params.require(:video).permit(:word, :title, :url, :note).merge(user_id: current_user.id)
   end
 
+  protected
+  
   def set_video
     @video = Video.find(params[:id])
   end

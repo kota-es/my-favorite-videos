@@ -88,8 +88,12 @@
     line-height: 50px;
     letter-spacing: 1px;
     text-align: center;
-    border: none;
-    border-radius: 2px;
+    border: 1px solid $gray; 
+    &.top{
+      margin-left: 3px;
+      background-color: $white;
+      color: $gray;
+    }
   }
 
   input[type='submit'] {

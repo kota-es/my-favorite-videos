@@ -17,9 +17,4 @@ $(document).on('turbolinks:load', function(){
     $(btn).text('♪やり直す場合はクリック♪');
   });
   
-  speech.onsoundstart = () => {
-    $(btn).text('聞き取り中...♪');
-  };
-  
-
 });

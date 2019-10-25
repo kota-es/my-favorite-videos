@@ -69,10 +69,7 @@ $(document).on('turbolinks:load', function(){
     })
 
     .done(function(data){
-      var html = buildHTML(data);
-      $('#display').html(html);
-      $(startbtn).css('display', 'none');
-      ScrollToTop();
+      VideoStart(data);
     })
     .fail(function(){
       alert("error")

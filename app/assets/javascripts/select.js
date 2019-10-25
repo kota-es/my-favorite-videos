@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function(){
-  var startbtn = $("#start-btn"); 
 
   $(".word").on("click", function(e){
     e.preventDefault();
@@ -14,10 +13,7 @@ $(document).on('turbolinks:load', function(){
     })
 
     .done(function(data){
-      var html = buildHTML(data);
-      $('#display').html(html);
-      $(startbtn).css('display', 'none');
-      ScrollToTop();
+      VideoStart(data);
     })
     .fail(function(){
       alert("error")

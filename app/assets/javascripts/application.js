@@ -15,6 +15,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
 var startbtn = $("#start-btn"); 
 
 function VideoStart(video){

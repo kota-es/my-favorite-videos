@@ -30,13 +30,14 @@
 }
 
 #top-menu{
-  width: 100vw;
+  width: 100%;
   height: 70px;
   background-color: $red;
   padding: 10px 100px;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
   &__wrapper{
     height: 10vh;
    }
@@ -45,29 +46,27 @@
     left:0;
     top:0;
   }
-  & ul{
+  & #search{
+    width: 60%;
+  }
+  & input{
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    height: 90%;
+    font-size: 1.3em;
+  }
+  & ul{
+      margin-left: 20px;
     & li{
+      float: left;
       margin: 5px;
-      &a{
-        color: $black;
-      }
-      &#search{
-        width: 100%;
-      }
-      & input{
-        min-width: 100%;
-        height: 90%;
-        font-size: 1.3em;
-      }
       & .menu-btn{
-        padding: 5px;
+        padding: 15px;
         font-weight: bold;
+        line-height: 2.3;
         margin-left: 10px;
         background: $white;
         color: $black;
+        font-size: 18px;
         cursor: pointer;
         &:hover{
           background: $black;
@@ -138,6 +137,7 @@ th{
   margin: 0;
   padding: 5px 10px;
   font-size: 1.1em;
+  color: black;
   cursor: pointer;
   &:focus{
    outline: none;

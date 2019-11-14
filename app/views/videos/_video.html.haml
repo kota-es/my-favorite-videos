@@ -2,5 +2,5 @@
   %td.word= video.word
   %td.title=video.title
   %td.note= video.note
-  %td= button_to "削除", "/videos/#{video.id}", method: :delete , data: {confirm: "【#{video.title}】を削除します。よろしいですか？"}, class: "t-btn delete"
-  %td= button_to "編集", edit_video_path(video), method: :get, class: "t-btn edit"
+  %td= link_to "削除", "/videos/#{video.id}", method: :delete , data: {confirm: "【#{video.title}】を削除します。よろしいですか？"}, class: "t-btn delete"
+  %td= link_to "編集", edit_video_path(video), method: :get, class: "t-btn edit"

@@ -9,7 +9,7 @@
       = f.label :url, "埋め込みURL", class: "video-form__label"
     .video-form__field--right
       = f.text_field :url, placeholder:"例）https://www.youtube.com/embed/DFC1xpxTVrs", class: "video-form__input"
-      %p 各動画ページの「共有」→「埋め込み」で表示される文字列の中から「src="〜"」の「〜」に該当する部分を抜き出してください。
+      %p Youtubeの各動画ページの「共有」→「埋め込み」で表示される文字列の中から「src="〜"」の「〜」に該当する部分をコピー・ペーストしてください。
   .video-form__field
     .video-form__field--left
       = f.label :note, "動画情報メモ", class: "video-form__label"
@@ -21,5 +21,5 @@
     .video-form__field--right
       %button.video-form__field__btn{:type => "button"} ♪音声入力♪
       = f.text_field :word, placeholder:"キーワードがここに入力されます", class: "video-form__input"
-      %p 「音声入力」ボタンをクリックして、設定したいキーワードを音声入力してください。自動でフォームが入力されます。
+      %p 「♪音声入力♪」ボタンをクリックして、設定したいキーワードを音声入力してください。自動でフォームが入力されます。
   = f.submit class: "video-form__btn"

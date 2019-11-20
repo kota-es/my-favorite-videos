@@ -15,10 +15,7 @@ $(document).on('turbolinks:load', function(){
   });
   
   speech.addEventListener('result', function(e){
-    var script = e.results[0][0].transcript;
-    console.log(e)
-    console.log(script);
-    
+    var script = e.results[0][0].transcript;  
     if(script == 'ストップ'){
       VideoStop();
     }else{

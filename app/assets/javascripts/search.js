@@ -1,14 +1,13 @@
 $(document).on('turbolinks:load', function(){
   var box = $("#search-box"); 
-  var startbtn = $("#start-btn"); 
 
   function appendVideoTitle(video){
     var html = `<tr class="video-content">
                   <td class="word">${video.word}</td>
                   <td class="title">${video.title}</td>
                   <td class="note">${video.note}</td>
-                  <td><form class="button_to" method="post" action="/videos/${video.id}"><input type="hidden" name="_method" value="delet"><input data-confirm="The White Stripes - 'Seven Nation Army'を削除します。よろしいですか？" class="t-btn delete" type="submit" value="削除"><input type="hidden" name="authenticity_token" value="VPfAhVXPegolqCbaFB5nq8TVb3Ayl3qtXYaRsCWtz6+OgHzqwGaAPseRme0XMslOlEBOPhrAsQBMaWTf0J5JjQ=="></form></td>
-                  <td><form class="button_to" method="get" action="/videos/${video.id}/edit"><input class="t-btn edit" type="submit" value="編集"></form></td>
+                  <td><a data-confirm="${video.title}を削除します。よろしいですか？" class="t-btn delete" rel="nofollow" data-method="delete" href="/videos/${video.id}">削除</a></td>
+                  <td><a class="t-btn edit" data-method="get" href="/videos/${video.id}/edit">編集</a></td>
                 </tr>`
 
     $('tbody').append(html);

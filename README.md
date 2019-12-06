@@ -21,6 +21,15 @@
 * 動画再生（キーワードクリック or キーワード音声入力）
 * 音声入力（「ストップ」）による動画の停止
 
+## リンク
+https://favotube.herokuapp.com/
+
+GoogleChromeにて以下のアカウントでご利用ください
+
+### テストアカウント
+<p>メールアドレス：test@test.com</p>
+パスワード：test123
+
 ## 使用言語・ツール
 
 * HTML(Haml)

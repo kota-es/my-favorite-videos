@@ -72,3 +72,4 @@ gem 'rails-i18n', '~> 5.1'
 gem "jquery-rails"
 gem 'haml-rails'
 gem 'gon'
+gem "rack", ">= 2.0.8"
